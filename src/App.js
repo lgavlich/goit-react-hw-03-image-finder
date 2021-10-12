@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import api from "./API/api";
-import Button from "./components/Button";
-
-import { render, screen } from "@testing-library/react";
-import App from "./App";
+import "react-toastify/dist/ReactToastify.css";
+import Button from "./components/Button/Button";
+import Modal from "./components/Modal/Modal";
 
 test("renders learn react link", () => {
   render(<App />);

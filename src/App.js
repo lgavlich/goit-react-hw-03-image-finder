@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import Searchbar from "./components/Searchbar/Searchbar";
-import ImageGallery from "./components/ImageGallery/ImageGallery";
+import ImageGallery from "./components/ImageGallery/ImageGallery.js";
 import Loader from "./components/Loader/Loader";
 
 class App extends Component {
@@ -24,8 +24,8 @@ class App extends Component {
       this.fetchSearch();
     }
   }
-  formSubmit = (searchName) => {
-    this.setState({ imagehName: imageName, page: 1, images: [] });
+  formSubmit = (imageName) => {
+    this.setState({ imageName: imageName, page: 1, images: [] });
   };
 
   fetchSearch = () => {
@@ -49,7 +49,7 @@ class App extends Component {
           });
         }
       })
-      .catch(error > this.setState({ error }))
+      .catch((error) => this.setState({ error }))
       .finally(() => this.setState({ loader: false }));
   };
 
@@ -83,11 +83,13 @@ class App extends Component {
           closeOnClick
           rtl={false}
         />
-        <SearchBar onSubmit={this.formSubmit} />
+        <Searchbar onSubmit={this.formSubmit} />
         <ImageGallery images={images} onImgClick={this.onImgClick} />
 
         {images.length > 0 && !loader && <Button onClick={this.fetchSearch} />}
-        {showModal && <Modal modalImg={modalImg} onClose={this.toggleModal} />}
+        {showModal && (
+          <Modal modalImage={modalImage} onClose={this.toggleModal} />
+        )}
       </div>
     );
   }

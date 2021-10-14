@@ -6,6 +6,7 @@ export default class SearchBar extends Component {
   state = {
     imageName: "",
   };
+
   hendleImageName = (e) => {
     this.setState({ imageName: e.currentTarget.value.toLowerCase() });
   };

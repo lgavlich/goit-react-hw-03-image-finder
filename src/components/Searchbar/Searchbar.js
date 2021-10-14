@@ -16,7 +16,7 @@ export default class SearchBar extends Component {
     if (this.state.imageName.trim() === "") {
       return toast.error("ВВедіть правильний запит");
     }
-    this.props.onSubmit(this.state.imageNaame);
+    this.props.onSubmit(this.state.imageName);
     this.setState({ imageName: "" });
   };
   render() {
